@@ -9,7 +9,7 @@ const getData = async () => {
   const user = await getUserFromCookie(cookies());
   const tasks = await db.task.findMany({
     where: {
-      ownerId: user.id,
+      ownerId: user?.id,
       NOT: {
         status: TASK_STATUS.COMPLETED,
         deleted: false,
@@ -23,7 +23,8 @@ const getData = async () => {
 
   return tasks;
 };
-const TaskCard = async ({ title, tasks }) => {
+
+const TaskCard = async ({ tasks, title }: any) => {
   const data = tasks || (await getData());
 
   return (
@@ -41,8 +42,8 @@ const TaskCard = async ({ title, tasks }) => {
       <div>
         {data && data.length ? (
           <div>
-            {data.map((task, index) => (
-              <div className="py-2" key={index}>
+            {data.map((task: any, index: number) => (
+              <div className="py-2 " key={index}>
                 <div>
                   <span className="text-gray-800">{task.name}</span>
                 </div>
@@ -62,4 +63,4 @@ const TaskCard = async ({ title, tasks }) => {
   );
 };
 
-export default TasksCard;
+export default TaskCard;

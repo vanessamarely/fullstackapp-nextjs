@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+// This file is used to configure Next.js
+// @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     appDir: true,
