@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import Button from "./Button";
 import Input from "./Input";
 
-Modal.setAppElement("#modal");
+//Modal.setAppElement("#modal");
 
 const NewProject = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -28,6 +28,8 @@ const NewProject = () => {
         onRequestClose={closeModal}
         overlayClassName="bg-[rgba(0,0,0,.4)] flex justify-center items-center absolute top-0 left-0 h-screen w-screen"
         className="w-3/4 bg-white rounded-xl p-8"
+        ariaHideApp={false}
+        id="modal"
       >
         <h1 className="text-3xl mb-6">New Project</h1>
         <form className="flex items-center" onSubmit={handleSubmit}>
